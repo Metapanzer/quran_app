@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876241823695",
+    "project_id": "quran-app-85113",
+    "storage_bucket": "quran-app-85113.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876241823695:android:b63a19605eab15f63a94ba",
+        "android_client_info": {
+          "package_name": "com.pribadi.quran_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACweHe1p5A0ViunaNz3cZi4JaYmMEFgyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
