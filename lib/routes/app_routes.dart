@@ -18,7 +18,7 @@ class AppRoutes {
     GetPage(name: start, page: () => const StartPage()),
     GetPage(name: login, page: () => const LoginPage()),
     GetPage(name: register, page: () => const RegisterPage()),
-    GetPage(name: main, page: () => const MainView()),
+    GetPage(name: main, page: () => MainView()),
     GetPage(name: home, page: () => const HomePage()),
     GetPage(name: about, page: () => const AboutPage()),
   ];
