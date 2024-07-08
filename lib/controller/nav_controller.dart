@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 class NavController extends GetxController {
-  var selectedIndex = 0.obs;
+  var selectedIndex = 1.obs;
 
-  void updateIndex(int index) {
+  void changePage(int index) {
     selectedIndex.value = index;
   }
 }
