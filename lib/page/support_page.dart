@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+class SupportPage extends StatelessWidget {
+  const SupportPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            'About',
+            'Help & Support',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -24,7 +24,7 @@ class AboutPage extends StatelessWidget {
                       color: Colors.white),
                   child: const Column(children: [
                     Text(
-                      'Welcome to Quran App, At Al Qur\'an Mobile App, we are dedicated to bringing the sacred teachings of the Holy Qur\'an closer to you, wherever you are. Our mission is to create an accessible and user-friendly platform that allows Muslims worldwide to read, study, and reflect upon the divine words of Allah.',
+                      'If you have any questions, feedback, or need support, please do not hesitate to reach out to us. We are here to assist you on your journey with the Holy Qur\'an.',
                       style: TextStyle(fontSize: 14),
                       textAlign: TextAlign.center,
                     ),
@@ -32,7 +32,12 @@ class AboutPage extends StatelessWidget {
                       height: 30,
                     ),
                     Text(
-                      'Our vision is to foster a deeper connection with the Holy Qur\'an by leveraging modern technology. We aim to provide a comprehensive digital experience that caters to the spiritual and educational needs of our users.',
+                      'Email: support@quranapp.com',
+                      style: TextStyle(fontSize: 14),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Phone: +6282123456789',
                       style: TextStyle(fontSize: 14),
                       textAlign: TextAlign.center,
                     )
