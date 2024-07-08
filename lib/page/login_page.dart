@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/constant/custom_color.dart';
@@ -27,7 +28,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(CustomColor.secondary),
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -97,59 +97,6 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 40,
               ),
-              // const Row(
-              //   children: [
-              //     Expanded(
-              //         child: Divider(
-              //       thickness: 3,
-              //       color: Color(0xffC0C0C0),
-              //     )),
-              //     Text(
-              //       'Login with',
-              //       style: TextStyle(color: Color(0xffC0C0C0)),
-              //     ),
-              //     Expanded(
-              //         child: Divider(
-              //       thickness: 3,
-              //       color: Color(0xffC0C0C0),
-              //     )),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 40,
-              // ),
-              // SizedBox(
-              //     height: 52,
-              //     width: double.infinity,
-              //     child: ElevatedButton(
-              //         onPressed: () {},
-              //         style: ElevatedButton.styleFrom(
-              //             backgroundColor:
-              //                 const Color(CustomColor.lightSecondary),
-              //             side: const BorderSide(
-              //                 color: Color(CustomColor.primary), width: 3),
-              //             shape: RoundedRectangleBorder(
-              //                 borderRadius: BorderRadius.circular(10))),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             Image.asset(
-              //               'assets/icons/icon-google.png',
-              //               width: 32,
-              //               height: 32,
-              //             ),
-              //             const Text(
-              //               'Google',
-              //               style: TextStyle(color: Color(CustomColor.primary)),
-              //             ),
-              //             const SizedBox(
-              //               width: 33,
-              //             )
-              //           ],
-              //         ))),
-              // const SizedBox(
-              //   height: 49,
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -182,15 +129,15 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    try {
-      await _authService.signInWithEmailAndPassword(email, password);
+    User? user = await _authService.signInWithEmailAndPassword(email, password);
+    if (user != null) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Login successfull')));
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       Get.offNamedUntil(AppRoutes.main, (route) => false);
-    } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Login failed')));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Login failed, please check your email or password')));
     }
   }
 }

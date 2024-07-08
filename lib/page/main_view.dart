@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quran_app/controller/nav_controller.dart';
-import 'package:quran_app/page/about_page.dart';
+import 'package:quran_app/page/doa_page.dart';
 import 'package:quran_app/page/home_page.dart';
 import 'package:quran_app/page/prayer_page.dart';
 
@@ -9,9 +9,9 @@ class MainView extends StatelessWidget {
   final NavController navController = Get.put(NavController());
 
   final List<Widget> pages = [
-    const AboutPage(),
-    const HomePage(),
     const PrayerPage(),
+    const HomePage(),
+    const DoaPage(),
   ];
 
   MainView({super.key});
@@ -23,18 +23,18 @@ class MainView extends StatelessWidget {
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             currentIndex: navController.selectedIndex.value,
             onTap: navController.changePage,
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'About',
+                icon: Image.asset('assets/icons/icon-mosque.png'),
+                label: 'Prayer',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Image.asset('assets/icons/icon-quran-opened.png'),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Prayer',
+                icon: Image.asset('assets/icons/icon-book.png'),
+                label: 'Doa',
               ),
             ],
           )),
